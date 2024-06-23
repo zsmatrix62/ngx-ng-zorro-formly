@@ -9,7 +9,7 @@ import zh from '@angular/common/locales/zh';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyNgZorroModule } from 'projects/ng-zorro-formly/src/public-api';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NgZorroAntdModule } from "./ngZorroAntd.module";
@@ -20,27 +20,20 @@ function requiredValidationMessage(err: any, field: any) {
 
 registerLocaleData(zh);
 
-@NgModule({
-  declarations: [
-    AppComponent,
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
-    FormlyModule.forRoot({
-      extras: { lazyRender: true },
-      validationMessages: [
-        {name: 'required', message: requiredValidationMessage}
-      ]
-    }),
-    FormlyNgZorroModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    NzFormModule,
-    NgZorroAntdModule,
-  ],
-  providers: [{ provide: NZ_I18N, useValue: zh_CN }],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        FormsModule,
+        ReactiveFormsModule,
+        FormlyModule.forRoot({
+            extras: { lazyRender: true },
+            validationMessages: [
+                { name: 'required', message: requiredValidationMessage }
+            ]
+        }),
+        FormlyNgZorroModule,
+        BrowserAnimationsModule,
+        NzFormModule,
+        NgZorroAntdModule], providers: [{ provide: NZ_I18N, useValue: zh_CN }, provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }

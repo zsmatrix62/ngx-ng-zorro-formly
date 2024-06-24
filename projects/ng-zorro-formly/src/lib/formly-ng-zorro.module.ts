@@ -9,7 +9,7 @@ import { FormlyNzCascaderModule } from './cascader/cascader.module';
 import { FormlyNzCheckboxModule } from './checkbox/checkbox.module';
 import { FormlyNzDateModule } from './date/date.module';
 import { FormlyNzFormFieldModule } from './form-field/form-field.module';
-import { FormlyNzChildtableFormFieldModule } from "./childtable-form-field/childtable-form-field.module";
+import { FormlyNzChildtableFormFieldModule } from './childtable-form-field/childtable-form-field.module';
 import { FormlyNzInputGroupModule } from './input-group/input-group.module';
 import { FormlyNzInputModule } from './input/input.module';
 import { FormlyNzRadioModule } from './radio/radio.module';
@@ -22,13 +22,13 @@ import { FormlyNzTimeModule } from './time/time.module';
 import { FormlyNzTransferModule } from './transfer/transfer.module';
 import { FormlyNzTreeSelectModule } from './tree-select/tree-select.module';
 import { FormlyNzUploadModule } from './upload/upload.module';
-import { FormlyNzChildtableModule } from "./childtable/childtable.module";
-import { FormlyRichModule } from "./rich/rich.module";
+import { FormlyNzChildtableModule } from './childtable/childtable.module';
+import { FormlyRichModule } from './rich/rich.module';
 // import { FormlyNzStepsModule } from "./steps/steps.module";
-import { FormlyNzCollapseModule } from "./collapse/collapse.module";
+import { FormlyNzCollapseModule } from './collapse/collapse.module';
 import { FormlyNzButtonModule } from './button/button.module';
 
-import { FormlyFormTemplateComponent } from "./formly-form-template.component";
+import { FormlyFormTemplateComponent } from './formly-form-template.component';
 
 @NgModule({
   declarations: [FormlyFormTemplateComponent],
@@ -61,8 +61,6 @@ import { FormlyFormTemplateComponent } from "./formly-form-template.component";
     FormlyNzCollapseModule,
     FormlyNzButtonModule,
   ],
-  exports: [
-    FormlyFormTemplateComponent,
-  ],
+  exports: [FormlyFormTemplateComponent],
 })
 export class FormlyNgZorroModule {}
